@@ -1,0 +1,138 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --bg-color: #f3f4f6;
+  --text-700: #374151;
+  --text-400: #94a3b8;
+  --text-100: #f3f4f6;
+  --text-300: #cbd5e1;
+  --white: #fff;
+  --primary-700: #4338ca;
+  --primary-600: #4f46e5;
+  --primary-100: #e0e7ff;
+  --rose-500: #f43f5e;
+}
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: 0;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+.app {
+  background-color: var(--bg-color);
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+}
+.app-header {
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 1px solid var(--text-400);
+  padding: 1rem;
+}
+
+.note {
+  background-color: red;
+  border-radius: 10px;
+  height: 110px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.note-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 1px solid #6b7280;
+  align-items: center;
+}
+.note-detail {
+  margin-bottom: 0.6rem;
+}
+.note-title {
+  margin-bottom: 0.2rem;
+}
+.note-description {
+  opacity: 0.6;
+}
+.note-date {
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  opacity: 0.5;
+}
+
+.note-functions-checkbox {
+  margin-left: 10px;
+}
+.note-functions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notes-filter {
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+  color: #6b7280;
+  margin: 1rem 0;
+}
+.filter-status {
+  font-size: 0.7rem;
+  background-color: #6b7280;
+  color: #f9fafb;
+  padding: 0.1rem 0.3rem;
+  border-radius: 100%;
+  text-align: center;
+  margin-left: 0.5rem;
+}
+.note-filter-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add-new-note {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  align-items: center;
+}
+.new-notes-title {
+  margin-bottom: 15px;
+}
+.new-note-form {
+  display: flex;
+  flex-direction: column;
+}
+.new-note-input {
+  all: unset;
+  background-color: #fff;
+  width: 210px;
+  height: 50px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding-left: 10px;
+}
+.add-note-btn {
+  all: unset;
+  width: 220px;
+  height: 50px;
+  color: #e5e7eb;
+  background-color: #1d4ed8;
+  border-radius: 5px;
+  text-align: center;
+}
+.notes-section {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: space-evenly;
+}
+.header-title {
+  margin-bottom: 1rem;
+}
+.all-notes-section {
+  margin-top: -0.8rem;
+}
