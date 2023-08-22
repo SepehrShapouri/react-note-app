@@ -1,20 +1,18 @@
-import {BsTrash} from "react-icons/bs"
-const Note = () => {
-    return ( 
-        <div className="note">
-            <div className="note-header">
-            <div className="note-detail">
-        <h4 className="note-title">note one</h4>
-        <p className="note-description">note one description</p>
+import NoteFunctions from "./NoteFunctions";
+const Note = ({ title, description, date, id, deleteHandler ,checkHandler,completed}) => {
+
+  return (
+    <div className={`note ${completed ? "completed" : ""}`}>
+      <div className="note-header">
+        <div className="note-detail">
+          <h4 className="note-title">{title}</h4>
+          <p className="note-description">{description}</p>
         </div>
-        <div className="note-functions">
-          <span><BsTrash/></span>
-          <input className="note-functions-checkbox" type="checkbox" />
-        </div>
-            </div>
-        <p className="note-date">July 21,2023</p>
+        <NoteFunctions checkHandler={checkHandler} deleteHandler={deleteHandler} id={id} />
       </div>
-     );
-}
- 
+      <p className="note-date">{date}</p>
+    </div>
+  );
+};
+
 export default Note;
