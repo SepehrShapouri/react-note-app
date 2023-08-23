@@ -1,5 +1,20 @@
 import { useState } from "react";
-const AddNewNote = ({title,description,setTitle,setDescription,clickHandler}) => {
+const AddNewNote = ({ onAddNote }) => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const clickHandler = (e) => {
+    if (!title || !description) return;
+    const newNote = {
+      title,
+      description,
+      id: Date.now(),
+      completed: false,
+      date: new Date().toLocaleDateString(),
+    };
+    onAddNote(newNote);
+    setTitle("");
+    setDescription("");
+  };
   return (
     <div className="add-new-note">
       <h3 className="new-notes-title">Add New Note</h3>

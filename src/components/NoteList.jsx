@@ -1,6 +1,6 @@
 import Note from "./Note";
 import NoteFilters from "./NoteFilters";
-const AllNotes = ({ allNotes, deleteHandler ,checkHandler}) => {
+const NoteList = ({ allNotes, deleteHandler ,checkHandler}) => {
   return (
     <div className="all-notes-section">
       <NoteFilters allNotes={allNotes} />
@@ -8,14 +8,10 @@ const AllNotes = ({ allNotes, deleteHandler ,checkHandler}) => {
         {allNotes.map((note) => {
           return (
             <Note
+            note={note}
               deleteHandler={deleteHandler}
               key={note.id}
-              title={note.title}
-              description={note.description}
-              date={note.date}
-              id={note.id}
               checkHandler={checkHandler}
-              completed={note.completed}
             />
           );
         })}
@@ -24,4 +20,4 @@ const AllNotes = ({ allNotes, deleteHandler ,checkHandler}) => {
   );
 };
 
-export default AllNotes;
+export default NoteList;
