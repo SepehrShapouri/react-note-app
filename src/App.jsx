@@ -3,33 +3,20 @@ import NoteHeader from "./components/NoteHeader";
 import NotesSection from "./components/NotesSection";
 import { useState } from "react";
 const App = () => {
-  const [newNote, setNewNote] = useState({
-    title: "",
-    description: "",
-    id: "",
-    date: "",
-    completed: false,
-  });
   const [allNotes, setAllNotes] = useState([]);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const clickHandler = (e) => {
-    if (newNote.title == "") {
-      alert("fill the form");
-    } else {
-      setAllNotes([...allNotes, newNote]);
-    }
-  };
-  const changeHandler = (e) => {
-    const id = new Date().getTime();
-    const date = new Date().toLocaleDateString();
-    const value = e.target.value;
-    const name = e.target.name;
-    setNewNote({
-      ...newNote,
-      [name]: value,
-      id: id,
-      date: date,
+    const newNote = {
+      title,
+      description,
+      id: Date.now(),
       completed: false,
-    });
+      date: new Date().toLocaleDateString(),
+    };
+    setAllNotes([...allNotes, newNote]);
+    setTitle("");
+    setDescription("");
   };
   const deleteHandler = (id) => {
     const allFilteredNotes = [...allNotes];
@@ -48,17 +35,17 @@ const App = () => {
     allFilteredNotes[index] = filteredNotes[0];
     setAllNotes(allFilteredNotes);
   };
-  const sortHandler = (e)=>{
-  }
+  const sortHandler = (e) => {};
   return (
     <div className="wrapper">
       <div className="app">
         <NoteHeader allNotes={allNotes} sortHandler={sortHandler} />
         <NotesSection
+          title={title}
+          description={description}
+          setDescription={setDescription}
+          setTitle={setTitle}
           clickHandler={clickHandler}
-          changeHandler={changeHandler}
-          newNote={newNote}
-          setNewNote={setNewNote}
           allNotes={allNotes}
           setAllNotes={setAllNotes}
           deleteHandler={deleteHandler}
