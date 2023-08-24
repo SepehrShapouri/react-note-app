@@ -1,10 +1,10 @@
 import SortDropDown from "./SortDropDown";
 
-const NoteHeader = ({allNotes,sortHandler}) => {
+const NoteHeader = ({allNotes,sort,setSort}) => {
     return ( 
         <header className="app-header">
         <h1 className="header-title">My Notes ({allNotes.length})</h1>
-        <SortDropDown sortHandler={sortHandler}/>
+        <SortDropDown sort={sort} setSort={setSort}/>
       </header>
      );
 }

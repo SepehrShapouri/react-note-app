@@ -5,9 +5,9 @@ const options = [
     { value: 'oldest', label: 'Sort By Oldest' },
     { value: 'completed', label: 'Sort by Completed' }
   ]
-const SortDropDown = ({sortHandler}) => {
+const SortDropDown = ({sort,setSort}) => {
     return ( 
-        <Select onChange={(e)=> sortHandler(e)}options={options}/>
+        <Select onChange={(e)=>setSort(e.value)} defaultValue={sort} options={options}/>
      );
 }
  
