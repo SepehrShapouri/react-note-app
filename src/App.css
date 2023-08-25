@@ -147,6 +147,19 @@
     align-items: center;
   }
   .all-notes-section {
-    margin-top: 1rem;
+    margin-top: 2rem;
+  }
+  .header-title{
+    font-size: 1.4rem;
+    align-self: flex-end;
+  }
+  .app-header{
+    justify-content: space-between;
+  }
+  .note{
+    width: 300px;
+  }
+  .notes-filter{
+    width: 300px;
   }
 }
