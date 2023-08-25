@@ -1,5 +1,6 @@
 import NoteFunctions from "./NoteFunctions";
 const Note = ({ note, deleteHandler, checkHandler }) => {
+  const options = { year: "numeric", month: "long", day: "numeric" };
   return (
     <div className={`note ${note.completed ? "completed" : ""}`}>
       <div className="note-header">
@@ -13,7 +14,7 @@ const Note = ({ note, deleteHandler, checkHandler }) => {
           id={note.id}
         />
       </div>
-      <p className="note-date">{note.date}</p>
+      <p className="note-date">{new Date(note.date).toLocaleDateString("en-US",options)}</p>
     </div>
   );
 };

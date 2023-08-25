@@ -9,7 +9,7 @@ const AddNewNote = ({ onAddNote }) => {
       description,
       id: Date.now(),
       completed: false,
-      date: new Date().toLocaleDateString(),
+      date: new Date().toISOString(),
     };
     onAddNote(newNote);
     setTitle("");
