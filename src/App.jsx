@@ -4,7 +4,7 @@ import NotesSection from "./components/NotesSection";
 import { useState } from "react";
 const App = () => {
   const [allNotes, setAllNotes] = useState([]);
-  const [sort,setSort] = useState("oldest")
+  const [sort, setSort] = useState("oldest");
   const deleteHandler = (id) => {
     setAllNotes((prevNote) => prevNote.filter((n) => n.id != id));
   };
@@ -18,13 +18,12 @@ const App = () => {
   const handleAddNote = (newNote) => {
     setAllNotes((prevState) => [...prevState, newNote]);
   };
-  console.log(sort)
   return (
     <div className="wrapper">
       <div className="app">
-        <NoteHeader allNotes={allNotes} sort={sort} setSort={setSort}/>
+        <NoteHeader allNotes={allNotes} sort={sort} setSort={setSort} />
         <NotesSection
-        sort={sort}
+          sort={sort}
           allNotes={allNotes}
           onAddNote={handleAddNote}
           deleteHandler={deleteHandler}

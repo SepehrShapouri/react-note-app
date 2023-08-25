@@ -14,7 +14,9 @@ const Note = ({ note, deleteHandler, checkHandler }) => {
           id={note.id}
         />
       </div>
-      <p className="note-date">{new Date(note.date).toLocaleDateString("en-US",options)}</p>
+      <p className="note-date">
+        {new Date(note.date).toLocaleDateString("en-US", options)}
+      </p>
     </div>
   );
 };
