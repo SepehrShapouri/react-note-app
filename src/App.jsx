@@ -1,22 +1,28 @@
 import "./App.css";
 import NoteHeader from "./components/NoteHeader";
 import NotesSection from "./components/NotesSection";
-import { useState } from "react";
+import myReducer from "./myReducer";
+import { useReducer, useState } from "react";
 const App = () => {
-  const [allNotes, setAllNotes] = useState([]);
+  const [allNotes, dispatch] = useReducer(myReducer,[]);
   const [sort, setSort] = useState("oldest");
   const deleteHandler = (id) => {
-    setAllNotes((prevNote) => prevNote.filter((n) => n.id != id));
+    dispatch({
+      type: "delete",
+      id: id,
+    });
   };
   const checkHandler = (id) => {
-    setAllNotes((prevNotes) =>
-      prevNotes.map((note) =>
-        note.id == id ? { ...note, completed: !note.completed } : note
-      )
-    );
+    dispatch({
+      type: "check",
+      id,
+    });
   };
   const handleAddNote = (newNote) => {
-    setAllNotes((prevState) => [...prevState, newNote]);
+    dispatch({
+      type: "add",
+      newNote,
+    });
   };
   return (
     <div className="wrapper">
