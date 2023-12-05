@@ -1,6 +1,10 @@
+import { useNotes } from "../context/NotesContext";
+import { useSort } from "../context/SortContext";
 import Note from "./Note";
 import NoteFilters from "./NoteFilters";
-const NoteList = ({ sort, allNotes, deleteHandler, checkHandler }) => {
+const NoteList = () => {
+  const { sort, setSort } = useSort();
+  const allNotes = useNotes();
   let sortedNotes = allNotes;
   if (sort === "oldest") {
     sortedNotes = [...allNotes].sort(
@@ -22,14 +26,7 @@ const NoteList = ({ sort, allNotes, deleteHandler, checkHandler }) => {
       <NoteFilters allNotes={allNotes} />
       <div className="all-notes-list">
         {sortedNotes.map((note) => {
-          return (
-            <Note
-              note={note}
-              deleteHandler={deleteHandler}
-              key={note.id}
-              checkHandler={checkHandler}
-            />
-          );
+          return <Note note={note} key={note.id} />;
         })}
       </div>
     </div>
